@@ -131,4 +131,4 @@ Il codice è distribuito con licenza **MIT** (file [LICENSE](LICENSE)): puoi usa
 - Le schermate in `docs/schermate/` mostrano dati inventati.
 - La pagina **Crediti** del sito (`/crediti`) riporta gli stessi riconoscimenti.
 
-Ideazione, progettazione e sviluppo: Simone Bruni.
+Progettazione e sviluppo: Simone Bruni.
