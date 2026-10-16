@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-// Le immagini caricate dalla redazione su Supabase Storage vengono ottimizzate
+// Le immagini caricate dalla redazione su Supabase Storage o Vercel Blob vengono ottimizzate
 // automaticamente (formati moderni, dimensioni adatte a ogni schermo).
 const supabaseHost = (() => {
   try {
@@ -11,6 +11,8 @@ const supabaseHost = (() => {
 })();
 
 const nextConfig: NextConfig = {
+  // Il browser deve sapere se i file vanno su Vercel Blob: la variabile del token esiste solo sul server.
+  env: { NEXT_PUBLIC_BLOB_UPLOADS: process.env.BLOB_READ_WRITE_TOKEN ? "1" : "" },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
@@ -22,9 +24,13 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
-    remotePatterns: supabaseHost
-      ? [{ protocol: "https", hostname: supabaseHost, pathname: "/storage/v1/object/public/**" }]
-      : [],
+    remotePatterns: [
+      ...(supabaseHost
+        ? [{ protocol: "https" as const, hostname: supabaseHost, pathname: "/storage/v1/object/public/**" }]
+        : []),
+      // Immagini caricate su Vercel Blob (archivio pubblico).
+      { protocol: "https" as const, hostname: "*.public.blob.vercel-storage.com" },
+    ],
   },
   experimental: {
     serverActions: { bodySizeLimit: "4mb" },

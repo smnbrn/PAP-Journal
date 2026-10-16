@@ -7,6 +7,8 @@ import { NextResponse, type NextRequest } from "next/server";
  * ogni pagina e in ogni azione (vedi src/lib/auth.ts).
  */
 export async function proxy(request: NextRequest) {
+  // Con Neon l'accesso è gestito da src/lib/auth.ts: non c'è nessuna sessione Supabase da rinnovare.
+  if (process.env.DATABASE_URL) return NextResponse.next();
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key =
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;

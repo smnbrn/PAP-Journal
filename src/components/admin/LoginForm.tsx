@@ -3,7 +3,7 @@ import { useActionState } from "react";
 import { login, type FormState } from "@/app/redazione/actions";
 import { inputClass } from "./ui";
 
-export function LoginForm({ mode }: { mode: "local" | "supabase" }) {
+export function LoginForm({ mode }: { mode: "local" | "supabase" | "neon" }) {
   const [state, action, pending] = useActionState(login, {} as FormState);
   return (
     <form action={action} className="space-y-5">
@@ -12,7 +12,7 @@ export function LoginForm({ mode }: { mode: "local" | "supabase" }) {
           {state.message}
         </p>
       )}
-      {mode === "supabase" && (
+      {mode !== "local" && (
         <div>
           <label htmlFor="email" className="mb-1.5 block font-semibold">
             Email

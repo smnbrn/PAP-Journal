@@ -56,7 +56,7 @@ async function LoginGate() {
       <h1 className="font-display text-3xl">Accedi</h1>
       {backend === "local" ? (
         <p className="mt-2 mb-6 text-sm text-ink-mute">
-          Modalità prova: il sito non è ancora collegato a Supabase. Usa la password scritta in <code>LOCAL_ADMIN_PASSWORD</code> nel file{" "}
+          Modalità prova: il sito non è ancora collegato a un database. Usa la password scritta in <code>LOCAL_ADMIN_PASSWORD</code> nel file{" "}
           <code>.env.local</code>.
         </p>
       ) : (

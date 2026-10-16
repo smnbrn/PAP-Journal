@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { buildCrossword, parseCrosswordText } from "@/lib/crossword";
 import { CONTENT_TAG } from "@/lib/data";
 import { backend } from "@/lib/env";
-import { checkLocalPassword, localLoginEnabled, requireStaff, signOut, startLocalSession } from "@/lib/auth";
+import { checkLocalPassword, localLoginEnabled, neonLogin, requireStaff, signOut, startLocalSession } from "@/lib/auth";
 import { slugify } from "@/lib/format";
 import { plainText, sanitizeArticleHtml } from "@/lib/sanitize";
 import { isCourseSlug } from "@/lib/site.config";
@@ -50,6 +50,20 @@ export async function login(_prev: FormState, form: FormData): Promise<FormState
   const email = String(form.get("email") ?? "").trim();
   const password = String(form.get("password") ?? "");
   if (!email || !password) return { message: "Inserisci email e password." };
+  if (backend === "neon") {
+    let ok = false;
+    try {
+      ok = await neonLogin(email, password);
+    } catch (error) {
+      console.error("Accesso redazione (Neon):", error);
+      return { message: "Accesso non riuscito. Riprova tra poco." };
+    }
+    if (!ok) {
+      await new Promise((r) => setTimeout(r, 600));
+      return { message: "Email o password non corrette." };
+    }
+    redirect("/redazione");
+  }
   const supabase = await createServerSupabase();
   const { error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) {

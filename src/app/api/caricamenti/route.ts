@@ -5,11 +5,19 @@ import { saveLocalUpload } from "@/lib/uploads";
 
 /**
  * Caricamento di immagini e PDF nella modalità prova (solo redazione).
- * Con Supabase configurato i file vanno direttamente su Supabase Storage.
+ * Con Vercel Blob (o con Supabase) i file vanno direttamente al servizio di archiviazione.
  */
 export async function POST(request: Request) {
-  if (backend !== "local") {
-    return NextResponse.json({ error: "Con Supabase i file si caricano su Supabase Storage." }, { status: 400 });
+  if (backend !== "local" || process.env.BLOB_READ_WRITE_TOKEN) {
+    return NextResponse.json(
+      {
+        error:
+          backend === "neon" && !process.env.BLOB_READ_WRITE_TOKEN
+            ? "Per caricare file serve un archivio Vercel Blob collegato al progetto (variabile BLOB_READ_WRITE_TOKEN)."
+            : "Questo percorso serve solo alla modalità prova: i file vanno su Vercel Blob o su Supabase Storage.",
+      },
+      { status: 400 },
+    );
   }
   const auth = await getAuthState();
   if (auth.state !== "staff") return NextResponse.json({ error: "Accesso riservato alla redazione." }, { status: 401 });
