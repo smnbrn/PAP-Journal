@@ -34,7 +34,7 @@ export default async function PrivacyPage() {
           <li>
             <strong>Statistiche di visita (facoltative).</strong> Se accetti il banner, usiamo Google Analytics per contare le visite e
             capire quali pagine vengono lette, con indirizzo IP anonimizzato. Se rifiuti, non viene caricato nulla. Puoi cambiare idea
-            cancellando i dati del sito dal browser.
+            in ogni momento dal link «Preferenze statistiche» in fondo alla pagina.
           </li>
           <li>
             <strong>Nessun cookie di profilazione</strong> e nessuno strumento pubblicitario.
