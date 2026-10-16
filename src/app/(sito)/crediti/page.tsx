@@ -32,7 +32,10 @@ export default async function CreditsPage() {
         <h2>Il sito</h2>
         <ul>
           <li>
-            <strong>Ideazione, progettazione e sviluppo:</strong> Simone Bruni.
+            <strong>Ideazione e struttura del giornale:</strong> Andrea Giardina.
+          </li>
+          <li>
+            <strong>Progettazione e sviluppo del sito:</strong> Simone Bruni.
           </li>
           <li>
             <strong>Illustrazioni dimostrative:</strong> disegni originali creati per il progetto, in stile risograph. Si sostituiscono
