@@ -53,6 +53,11 @@ export async function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/crediti" className="link-underline">
+                  Crediti
+                </Link>
+              </li>
+              <li>
                 <Link href="/redazione" className="link-underline">
                   Area redazione
                 </Link>

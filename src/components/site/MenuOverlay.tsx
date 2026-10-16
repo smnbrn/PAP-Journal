@@ -192,6 +192,7 @@ export function MenuOverlay({
                   ["/cerca", "Cerca negli articoli"],
                   ["/scrivi", "Scrivi alla redazione"],
                   ["/progetto", "Il progetto"],
+                  ["/crediti", "Crediti"],
                 ].map(([href, label]) => (
                   <li key={href}>
                     <Link
