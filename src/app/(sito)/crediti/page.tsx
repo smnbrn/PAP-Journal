@@ -23,6 +23,9 @@ export default async function CreditsPage() {
         <h2>Il giornale</h2>
         <ul>
           <li>
+            <strong>Ideazione e struttura:</strong> Andrea Giardina.
+          </li>
+          <li>
             <strong>Redazione e contenuti:</strong> gli studenti di {settings.school_name} ({settings.school_sites}), con i docenti
             referenti.
           </li>
@@ -34,10 +37,7 @@ export default async function CreditsPage() {
         <h2>Il sito</h2>
         <ul>
           <li>
-            <strong>Ideazione e struttura del giornale:</strong> Andrea Giardina.
-          </li>
-          <li>
-            <strong>Progettazione e sviluppo del sito:</strong>{" "}
+            <strong>Progettazione e sviluppo:</strong>{" "}
             <a
               href={LINKEDIN_SIMONE}
               target="_blank"

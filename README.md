@@ -131,5 +131,5 @@ Il codice è distribuito con licenza **MIT** (file [LICENSE](LICENSE)): puoi usa
 - Le schermate in `docs/schermate/` mostrano dati inventati.
 - La pagina **Crediti** del sito (`/crediti`) riporta gli stessi riconoscimenti.
 
-Ideazione e struttura del giornale: Andrea Giardina.  
-Progettazione e sviluppo del sito: Simone Bruni ([LinkedIn](https://www.linkedin.com/in/simonebruni14/)).
+Ideazione e struttura: Andrea Giardina.  
+Progettazione e sviluppo: Simone Bruni ([LinkedIn](https://www.linkedin.com/in/simonebruni14/)).
