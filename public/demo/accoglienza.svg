@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Illustrazione: una porta aperta sulla luce e uno zaino">
+<title>Illustrazione: una porta aperta sulla luce e uno zaino</title>
+<defs>
+<filter id="noise" x="0" y="0" width="100%" height="100%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="t"/>
+ <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 -1.4 1.05"/>
+</filter>
+<pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="8" cy="8" r="2.8" fill="#1A1916"/></pattern>
+<pattern id="dotsS" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="5" cy="5" r="1.6" fill="#1A1916"/></pattern>
+<pattern id="lines" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="12" height="3" fill="#1A1916"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#F3EDE1"/>
+<g style="mix-blend-mode:multiply">
+
+<rect x="380" y="140" width="440" height="700" fill="#1A1916"/>
+<path d="M400 160 L800 160 L800 840 L400 840Z" fill="#D9A23A"/>
+<path d="M400 840 L800 840 L1100 900 L100 900Z" fill="#D9A23A" opacity=".45"/>
+<path d="M400 160 L560 200 L560 880 L400 840Z" fill="#C8432B"/>
+<circle cx="540" cy="520" r="10" fill="#1A1916"/>
+<g transform="translate(700 600)"><rect x="-60" y="0" width="120" height="170" rx="30" fill="#22402F"/><rect x="-40" y="70" width="80" height="60" rx="10" fill="#7C8A4A"/><path d="M-30 0 C-30 -40 30 -40 30 0" fill="none" stroke="#22402F" stroke-width="12"/></g>
+<g fill="#1A1916" opacity=".7"><rect x="90" y="200" width="14" height="80"/><rect x="120" y="200" width="14" height="110"/><rect x="150" y="200" width="14" height="140"/><rect x="180" y="200" width="14" height="80"/><rect x="210" y="200" width="14" height="110"/><rect x="240" y="200" width="14" height="140"/></g>
+
+</g>
+<rect width="1200" height="900" filter="url(#noise)" opacity=".38"/>
+</svg>

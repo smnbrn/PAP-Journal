@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Illustrazione: riccio di castagno aperto e castagne">
+<title>Illustrazione: riccio di castagno aperto e castagne</title>
+<defs>
+<filter id="noise" x="0" y="0" width="100%" height="100%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="t"/>
+ <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 -1.4 1.05"/>
+</filter>
+<pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="8" cy="8" r="2.8" fill="#1A1916"/></pattern>
+<pattern id="dotsS" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="5" cy="5" r="1.6" fill="#1A1916"/></pattern>
+<pattern id="lines" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="12" height="3" fill="#1A1916"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#F3EDE1"/>
+<g style="mix-blend-mode:multiply">
+
+<rect width="1200" height="900" fill="#9DB09A" opacity=".45"/>
+<g stroke="#7C8A4A" stroke-width="7" stroke-linecap="round"><line x1="610" y1="430" x2="670" y2="442"/><line x1="608" y1="455" x2="666" y2="475"/><line x1="604" y1="479" x2="658" y2="507"/><line x1="596" y1="503" x2="646" y2="537"/><line x1="585" y1="525" x2="630" y2="566"/><line x1="571" y1="546" x2="610" y2="592"/><line x1="554" y1="564" x2="588" y2="615"/><line x1="536" y1="581" x2="562" y2="636"/><line x1="515" y1="595" x2="534" y2="652"/><line x1="493" y1="606" x2="504" y2="665"/><line x1="469" y1="614" x2="473" y2="674"/><line x1="445" y1="618" x2="440" y2="679"/><line x1="420" y1="620" x2="408" y2="680"/><line x1="395" y1="618" x2="375" y2="676"/><line x1="371" y1="614" x2="343" y2="668"/><line x1="347" y1="606" x2="313" y2="656"/><line x1="325" y1="595" x2="284" y2="640"/><line x1="304" y1="581" x2="258" y2="620"/><line x1="286" y1="564" x2="235" y2="598"/><line x1="269" y1="546" x2="214" y2="572"/><line x1="255" y1="525" x2="198" y2="544"/><line x1="244" y1="503" x2="185" y2="514"/><line x1="236" y1="479" x2="176" y2="483"/><line x1="232" y1="455" x2="171" y2="450"/><line x1="230" y1="430" x2="170" y2="418"/><line x1="232" y1="405" x2="174" y2="385"/><line x1="236" y1="381" x2="182" y2="353"/><line x1="244" y1="357" x2="194" y2="323"/><line x1="255" y1="335" x2="210" y2="294"/><line x1="269" y1="314" x2="230" y2="268"/><line x1="286" y1="296" x2="252" y2="245"/><line x1="304" y1="279" x2="278" y2="224"/><line x1="325" y1="265" x2="306" y2="208"/><line x1="347" y1="254" x2="336" y2="195"/><line x1="371" y1="246" x2="367" y2="186"/><line x1="395" y1="242" x2="400" y2="181"/><line x1="420" y1="240" x2="432" y2="180"/><line x1="445" y1="242" x2="465" y2="184"/><line x1="469" y1="246" x2="497" y2="192"/><line x1="493" y1="254" x2="527" y2="204"/><line x1="515" y1="265" x2="556" y2="220"/><line x1="536" y1="279" x2="582" y2="240"/><line x1="554" y1="296" x2="605" y2="262"/><line x1="571" y1="314" x2="626" y2="288"/><line x1="585" y1="335" x2="642" y2="316"/><line x1="596" y1="357" x2="655" y2="346"/><line x1="604" y1="381" x2="664" y2="377"/><line x1="608" y1="405" x2="669" y2="410"/></g>
+<circle cx="420" cy="430" r="195" fill="#7C8A4A"/>
+<circle cx="420" cy="430" r="195" fill="url(#dotsS)" opacity=".35"/>
+<circle cx="420" cy="430" r="120" fill="#E9DFCC"/>
+<g transform="translate(10 -8)" opacity="0.45" fill="#C8432B"><path transform="translate(800 520) scale(1.5)" d="M0 -110 C70 -100 120 -30 110 50 C100 100 -100 100 -110 50 C-120 -30 -70 -100 0 -110Z"/></g>
+<g fill="#6B4630"><path transform="translate(800 520) scale(1.5)" d="M0 -110 C70 -100 120 -30 110 50 C100 100 -100 100 -110 50 C-120 -30 -70 -100 0 -110Z"/></g>
+<path d="M650 590 C720 640 880 640 950 590 L960 610 C880 680 720 680 640 610Z" fill="#E4C27A"/>
+<g fill="#6B4630"><path transform="translate(420 450) scale(0.9)" d="M0 -110 C70 -100 120 -30 110 50 C100 100 -100 100 -110 50 C-120 -30 -70 -100 0 -110Z"/></g>
+<path d="M330 495 C380 525 460 525 510 495 L515 510 C460 545 380 545 325 510Z" fill="#E4C27A"/>
+<g fill="#22402F"><path d="M880 140 C1000 120 1100 200 1110 300 C1000 300 900 240 880 140Z"/></g>
+<path d="M880 140 L1110 300" stroke="#F3EDE1" stroke-width="4"/>
+
+</g>
+<rect width="1200" height="900" filter="url(#noise)" opacity=".38"/>
+</svg>

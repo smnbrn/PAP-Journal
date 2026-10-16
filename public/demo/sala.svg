@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Illustrazione: un coperto apparecchiato visto dall'alto">
+<title>Illustrazione: un coperto apparecchiato visto dall'alto</title>
+<defs>
+<filter id="noise" x="0" y="0" width="100%" height="100%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="t"/>
+ <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 -1.4 1.05"/>
+</filter>
+<pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="8" cy="8" r="2.8" fill="#1A1916"/></pattern>
+<pattern id="dotsS" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="5" cy="5" r="1.6" fill="#1A1916"/></pattern>
+<pattern id="lines" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="12" height="3" fill="#1A1916"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#F3EDE1"/>
+<g style="mix-blend-mode:multiply">
+
+<rect x="140" y="110" width="920" height="680" rx="8" fill="#9DB09A" opacity=".55"/>
+<rect x="140" y="110" width="920" height="680" rx="8" fill="url(#lines)" opacity=".12"/>
+<circle cx="600" cy="450" r="250" fill="#F3EDE1"/>
+<circle cx="600" cy="450" r="250" fill="none" stroke="#1A1916" stroke-width="5"/>
+<circle cx="600" cy="450" r="185" fill="none" stroke="#22402F" stroke-width="3" opacity=".7"/>
+<g transform="translate(8 -6)" opacity="0.8" fill="#C8432B"><circle cx="600" cy="450" r="120"/></g>
+<circle cx="600" cy="450" r="120" fill="#C8432B" opacity=".35"/>
+<g fill="#1A1916">
+ <rect x="275" y="250" width="16" height="400" rx="8"/>
+ <rect x="240" y="250" width="8" height="120" rx="4"/><rect x="258" y="250" width="8" height="120" rx="4"/><rect x="300" y="250" width="8" height="120" rx="4"/><rect x="318" y="250" width="8" height="120" rx="4"/>
+ <path d="M240 360 L326 360 L300 400 L266 400Z"/>
+ <path d="M905 250 C945 290 945 380 925 420 L925 650 L905 650Z"/>
+</g>
+<circle cx="980" cy="230" r="70" fill="#BFD0D6" opacity=".8"/>
+<circle cx="980" cy="230" r="70" fill="none" stroke="#1A1916" stroke-width="4"/>
+
+</g>
+<rect width="1200" height="900" filter="url(#noise)" opacity=".38"/>
+</svg>

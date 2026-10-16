@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Illustrazione: impasto che lievita in una ciotola sotto la luna">
+<title>Illustrazione: impasto che lievita in una ciotola sotto la luna</title>
+<defs>
+<filter id="noise" x="0" y="0" width="100%" height="100%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="t"/>
+ <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 -1.4 1.05"/>
+</filter>
+<pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="8" cy="8" r="2.8" fill="#1A1916"/></pattern>
+<pattern id="dotsS" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="5" cy="5" r="1.6" fill="#1A1916"/></pattern>
+<pattern id="lines" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="12" height="3" fill="#1A1916"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#9C4565"/>
+<g style="">
+
+<circle cx="880" cy="230" r="120" fill="#F3EDE1"/>
+<circle cx="930" cy="200" r="110" fill="#9C4565"/>
+<path d="M300 520 C300 380 420 320 600 320 C780 320 900 380 900 520Z" fill="#E9DFCC"/>
+<path d="M300 520 C300 380 420 320 600 320 C780 320 900 380 900 520Z" fill="url(#dotsS)" opacity=".15"/>
+<path d="M250 520 L950 520 L880 760 L320 760Z" fill="#C8432B"/>
+<path d="M250 520 L950 520 L880 760 L320 760Z" fill="url(#lines)" opacity=".15"/>
+<g fill="none" stroke="#F3EDE1" stroke-width="5" opacity=".8"><path d="M380 600 L820 600 M400 660 L800 660"/></g>
+<g fill="#F3EDE1"><circle cx="160" cy="180" r="4"/><circle cx="260" cy="250" r="3"/><circle cx="420" cy="120" r="3"/></g>
+
+</g>
+<rect width="1200" height="900" filter="url(#noise)" opacity=".38"/>
+</svg>

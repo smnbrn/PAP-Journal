@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Illustrazione: vellutata di zucca con semi tostati">
+<title>Illustrazione: vellutata di zucca con semi tostati</title>
+<defs>
+<filter id="noise" x="0" y="0" width="100%" height="100%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="t"/>
+ <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 -1.4 1.05"/>
+</filter>
+<pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="8" cy="8" r="2.8" fill="#1A1916"/></pattern>
+<pattern id="dotsS" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="5" cy="5" r="1.6" fill="#1A1916"/></pattern>
+<pattern id="lines" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="12" height="3" fill="#1A1916"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#22402F"/>
+<g style="">
+
+<rect width="1200" height="900" fill="#22402F"/>
+<rect width="1200" height="900" fill="url(#dots)" opacity=".08"/>
+<circle cx="600" cy="450" r="330" fill="#F3EDE1"/>
+<circle cx="600" cy="450" r="250" fill="#D9A23A"/>
+<circle cx="600" cy="450" r="250" fill="url(#dotsS)" opacity=".18"/>
+<path d="M480 430 C540 380 640 520 720 450" fill="none" stroke="#F3EDE1" stroke-width="14" stroke-linecap="round" opacity=".9"/>
+<ellipse transform="translate(690 430) rotate(0)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(649 488) rotate(40)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(563 461) rotate(80)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(511 389) rotate(120)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(541 377) rotate(160)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(626 443) rotate(200)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(686 490) rotate(240)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(668 449) rotate(280)" rx="16" ry="8" fill="#7C8A4A"/><ellipse transform="translate(587 380) rotate(320)" rx="16" ry="8" fill="#7C8A4A"/>
+<g fill="#E9DFCC" opacity=".95"><rect x="960" y="140" width="40" height="620" rx="20"/><ellipse cx="980" cy="170" rx="55" ry="80"/></g>
+
+</g>
+<rect width="1200" height="900" filter="url(#noise)" opacity=".38"/>
+</svg>

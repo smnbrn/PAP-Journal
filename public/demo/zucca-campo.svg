@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Illustrazione: una zucca nell'orto">
+<title>Illustrazione: una zucca nell'orto</title>
+<defs>
+<filter id="noise" x="0" y="0" width="100%" height="100%">
+ <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="t"/>
+ <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.09  0 0 0 0 0.08  0 0 0 -1.4 1.05"/>
+</filter>
+<pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="8" cy="8" r="2.8" fill="#1A1916"/></pattern>
+<pattern id="dotsS" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="5" cy="5" r="1.6" fill="#1A1916"/></pattern>
+<pattern id="lines" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="12" height="3" fill="#1A1916"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#F3EDE1"/>
+<g style="mix-blend-mode:multiply">
+
+<rect x="0" y="640" width="1200" height="260" fill="#6B4630" opacity=".55"/>
+<rect x="0" y="640" width="1200" height="260" fill="url(#lines)" opacity=".12"/>
+<g transform="translate(12 -8)" opacity="0.5" fill="#C8432B"><ellipse cx="370" cy="520" rx="150" ry="230"/><ellipse cx="830" cy="520" rx="150" ry="230"/><ellipse cx="480" cy="520" rx="170" ry="230"/><ellipse cx="720" cy="520" rx="170" ry="230"/><ellipse cx="600" cy="520" rx="170" ry="230"/></g>
+<g fill="#D9A23A"><ellipse cx="370" cy="520" rx="150" ry="230"/><ellipse cx="830" cy="520" rx="150" ry="230"/><ellipse cx="480" cy="520" rx="170" ry="230"/><ellipse cx="720" cy="520" rx="170" ry="230"/><ellipse cx="600" cy="520" rx="170" ry="230"/></g>
+<g fill="none" stroke="#C8432B" stroke-width="5" opacity=".7"><ellipse cx="370" cy="520" rx="150" ry="230"/><ellipse cx="830" cy="520" rx="150" ry="230"/><ellipse cx="480" cy="520" rx="170" ry="230"/><ellipse cx="720" cy="520" rx="170" ry="230"/><ellipse cx="600" cy="520" rx="170" ry="230"/></g>
+<path d="M590 300 C580 250 600 210 640 190 L660 215 C630 235 620 260 625 300Z" fill="#22402F"/>
+<path d="M650 230 C750 160 860 190 900 250 C820 260 740 270 650 230Z" fill="#7C8A4A"/>
+<path d="M300 300 C230 250 200 170 240 120" fill="none" stroke="#22402F" stroke-width="6"/>
+<circle cx="1030" cy="170" r="80" fill="#F3EDE1" stroke="#1A1916" stroke-width="4"/>
+
+</g>
+<rect width="1200" height="900" filter="url(#noise)" opacity=".38"/>
+</svg>
