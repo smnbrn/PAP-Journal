@@ -16,6 +16,26 @@ Tecnologie: Next.js 16 (App Router) + TypeScript, Tailwind CSS 4. Dati e accesso
 
 ---
 
+## Schermate
+
+I contenuti mostrati sono d'esempio, con dati inventati.
+
+![Prima pagina del sito su computer](docs/schermate/home-desktop.png)
+
+| Sito su telefono | Dal campo al piatto |
+| --- | --- |
+| ![Prima pagina su telefono](docs/schermate/home-mobile.png) | ![Doppia pagina «Dal campo al piatto»](docs/schermate/dal-campo-al-piatto-desktop.png) |
+
+**Area redazione**
+
+![Scrivania della redazione](docs/schermate/redazione-scrivania.png)
+
+![Editor degli articoli](docs/schermate/redazione-editor.png)
+
+![Contributi dei lettori](docs/schermate/redazione-contributi.png)
+
+---
+
 ## 1. Provarlo sul proprio computer (5 minuti, senza account)
 
 Serve [Node.js](https://nodejs.org) versione 20 o successiva.
@@ -100,3 +120,15 @@ scripts/                 migrazioni e creazione degli account (Neon)
 ```
 
 Comandi utili: `npm run dev`, `npm run build`, `npm run lint`.
+
+## Licenza e crediti
+
+Il codice è distribuito con licenza **MIT** (file [LICENSE](LICENSE)): puoi usarlo, modificarlo e riutilizzarlo, mantenendo l'avviso di copyright.
+
+- I caratteri (Fraunces, Instrument Sans, IBM Plex Mono) sono caricati da Google Fonts con licenza SIL Open Font License.
+- Le illustrazioni in `public/demo/` sono disegni originali creati per il progetto (vedi [`public/demo/CREDITI.md`](public/demo/CREDITI.md)).
+- Testi, fotografie e disegni che la redazione pubblica restano degli autori e della scuola: non sono coperti dalla licenza MIT.
+- Le schermate in `docs/schermate/` mostrano dati inventati.
+- La pagina **Crediti** del sito (`/crediti`) riporta gli stessi riconoscimenti.
+
+Ideazione, progettazione e sviluppo: Simone Bruni.
