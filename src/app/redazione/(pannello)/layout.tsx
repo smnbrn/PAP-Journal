@@ -42,7 +42,7 @@ export default function PanelLayout({ children }: LayoutProps<"/redazione">) {
       <div className="min-w-0">
         {backend === "local" && (
           <p className="border-b border-saffron-ink/30 bg-saffron/40 px-4 py-2 text-sm sm:px-8">
-            <strong>Modalità prova.</strong> I contenuti sono salvati solo su questo computer. Per pubblicare online collega Supabase (vedi
+            <strong>Modalità prova.</strong> I contenuti sono salvati solo su questo computer. Per pubblicare online collega un database (vedi
             README).
           </p>
         )}

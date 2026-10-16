@@ -1,5 +1,6 @@
 "use client";
-import { backend, STORAGE_BUCKET } from "./env";
+import { upload } from "@vercel/blob/client";
+import { blobUploads, STORAGE_BUCKET, supabaseKey, supabaseUrl } from "./env";
 import { getBrowserSupabase } from "./supabase/browser";
 import { IMAGE_INPUT_MAX_BYTES, IMAGE_MAX_BYTES, IMAGE_MAX_SIDE, IMAGE_QUALITY, mb, PDF_MAX_BYTES } from "./upload-limits";
 
@@ -48,7 +49,26 @@ export async function uploadFile(original: File, folder: "immagini" | "pdf"): Pr
     );
   }
 
-  if (backend === "local") {
+  const ext = file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "bin";
+  const now = new Date();
+  const path = `${folder}/${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${crypto.randomUUID()}.${ext}`;
+
+  // Vercel Blob (con Neon, o con qualunque database se l'archivio Blob è collegato).
+  if (blobUploads) {
+    try {
+      const blob = await upload(path, file, {
+        access: "public",
+        handleUploadUrl: "/api/caricamenti/blob",
+        contentType: file.type,
+      });
+      return blob.url;
+    } catch (error) {
+      throw new Error(`Caricamento non riuscito: ${(error as Error).message}`);
+    }
+  }
+
+  // Modalità prova: il file resta sul computer.
+  if (!supabaseUrl || !supabaseKey) {
     const body = new FormData();
     body.append("file", file);
     const res = await fetch("/api/caricamenti", { method: "POST", body });
@@ -58,9 +78,6 @@ export async function uploadFile(original: File, folder: "immagini" | "pdf"): Pr
   }
 
   const supabase = getBrowserSupabase();
-  const ext = file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "bin";
-  const now = new Date();
-  const path = `${folder}/${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${crypto.randomUUID()}.${ext}`;
   const { error } = await supabase.storage.from(STORAGE_BUCKET).upload(path, file, {
     contentType: file.type,
     cacheControl: "31536000",

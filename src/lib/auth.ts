@@ -4,8 +4,11 @@ import { cookies } from "next/headers";
 import { connection } from "next/server";
 import { redirect } from "next/navigation";
 import { cache } from "react";
+import { getPool } from "./db";
 import { backend } from "./env";
+import { DUMMY_HASH, verifyPassword } from "./password";
 import { LocalStore } from "./store/local";
+import { NeonStore } from "./store/neon";
 import { SupabaseStore } from "./store/supabase";
 import type { AdminStore } from "./store/types";
 import { createServerSupabase } from "./supabase/server";
@@ -72,12 +75,84 @@ async function readLocalSession() {
   return safeEqual(signature, sign(`local-admin:${expires}`));
 }
 
+// ─── Neon: account propri, sessione firmata in un cookie ───────────────────
+// Il cookie contiene `idUtente.scadenza.firma`. La firma comprende anche
+// l'impronta della password: cambiare la password chiude tutte le sessioni.
+const NEON_COOKIE = "pap_sessione";
+const NEON_SESSION_HOURS = 24 * 7;
+
+type ProfileRow = { id: string; email: string; display_name: string | null; role: string; password_hash: string };
+
+function sessionSecret() {
+  const secret = process.env.SESSION_SECRET ?? "";
+  if (secret.length < 32) {
+    throw new Error("SESSION_SECRET non è impostata o è troppo corta (servono almeno 32 caratteri).");
+  }
+  return secret;
+}
+
+function signSession(id: string, expires: number, passwordHash: string) {
+  return createHmac("sha256", sessionSecret()).update(`${id}.${expires}.${passwordHash}`).digest("base64url");
+}
+
+export async function neonLogin(email: string, password: string): Promise<boolean> {
+  const { rows } = await getPool().query<ProfileRow>(
+    `select id, email, display_name, role, password_hash from profiles where lower(email) = lower($1)`,
+    [email.trim()],
+  );
+  const profile = rows[0];
+  // Si calcola comunque un'impronta anche se l'email non esiste: i tempi di risposta non rivelano chi ha un account.
+  const ok = await verifyPassword(password, profile?.password_hash ?? DUMMY_HASH);
+  if (!profile || !ok) return false;
+  await connection();
+  const expires = Date.now() + NEON_SESSION_HOURS * 3600_000;
+  (await cookies()).set(NEON_COOKIE, `${profile.id}.${expires}.${signSession(profile.id, expires, profile.password_hash)}`, {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    maxAge: NEON_SESSION_HOURS * 3600,
+  });
+  return true;
+}
+
+async function readNeonProfile(): Promise<ProfileRow | null> {
+  const raw = (await cookies()).get(NEON_COOKIE)?.value;
+  if (!raw) return null;
+  const [id, expiresRaw, signature] = raw.split(".");
+  if (!id || !expiresRaw || !signature) return null;
+  await connection();
+  if (Number(expiresRaw) < Date.now()) return null;
+  const { rows } = await getPool()
+    .query<ProfileRow>(`select id, email, display_name, role, password_hash from profiles where id = $1`, [id])
+    .catch(() => ({ rows: [] as ProfileRow[] }));
+  const profile = rows[0];
+  if (!profile) return null;
+  return safeEqual(signature, signSession(profile.id, Number(expiresRaw), profile.password_hash)) ? profile : null;
+}
+
 // ─── Stato di accesso ──────────────────────────────────────────────────────
 export const getAuthState = cache(async (): Promise<AuthState> => {
   if (backend === "local") {
     return (await readLocalSession())
       ? { state: "staff", staff: { id: "local", name: "Redazione (prova)", email: null, role: "admin" } }
       : { state: "anonymous" };
+  }
+  if (backend === "neon") {
+    const profile = await readNeonProfile();
+    if (!profile) return { state: "anonymous" };
+    if (profile.role === "editor" || profile.role === "admin") {
+      return {
+        state: "staff",
+        staff: {
+          id: profile.id,
+          name: profile.display_name || profile.email || "Redazione",
+          email: profile.email,
+          role: profile.role,
+        },
+      };
+    }
+    return { state: "pending", email: profile.email };
   }
   const supabase = await createServerSupabase();
   const {
@@ -110,14 +185,22 @@ export const getAuthState = cache(async (): Promise<AuthState> => {
 export async function requireStaff(): Promise<{ staff: Staff; store: AdminStore }> {
   const auth = await getAuthState();
   if (auth.state !== "staff") redirect("/redazione/accesso");
-  const store =
-    backend === "supabase" ? new SupabaseStore(await createServerSupabase()) : new LocalStore(true);
+  const store: AdminStore =
+    backend === "neon"
+      ? new NeonStore(getPool(), true)
+      : backend === "supabase"
+        ? new SupabaseStore(await createServerSupabase())
+        : new LocalStore(true);
   return { staff: auth.staff, store };
 }
 
 export async function signOut() {
   if (backend === "local") {
     (await cookies()).delete(LOCAL_COOKIE);
+    return;
+  }
+  if (backend === "neon") {
+    (await cookies()).delete(NEON_COOKIE);
     return;
   }
   const supabase = await createServerSupabase();
