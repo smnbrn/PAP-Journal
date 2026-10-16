@@ -74,7 +74,7 @@ export function MenuOverlay({
         className="menu-dialog m-0 h-dvh max-h-none w-full max-w-none bg-transparent p-0 backdrop:bg-ink/55 backdrop:backdrop-blur-[2px] sm:p-4 lg:p-8"
         aria-label="Il menù del giornale"
       >
-        <div className="menu-card relative mx-auto h-full max-w-6xl overflow-y-auto bg-paper bg-[image:var(--paper-grain)] text-ink shadow-2xl sm:rounded-md">
+        <div className="menu-card no-scrollbar relative mx-auto h-full max-w-6xl overflow-y-auto bg-paper bg-[image:var(--paper-grain)] text-ink shadow-2xl sm:rounded-md">
           {/* Contenitore interno: cresce con il contenuto, così la cornice arriva fino in fondo anche scorrendo */}
           <div className="relative flex min-h-full flex-col">
             {/* cornice a doppio filetto, come una carta stampata */}
