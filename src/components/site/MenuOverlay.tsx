@@ -143,8 +143,8 @@ export function MenuOverlay({
                 </ol>
               </nav>
 
-              <aside className="hidden lg:block" aria-live="polite">
-                <div className="sticky top-0">
+              <aside className="hidden self-start lg:block" aria-live="polite">
+                <div>
                   <p
                     className="kicker flex items-center gap-2"
                     style={{ color: activeCourse.ink }}
