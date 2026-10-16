@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import { getSettings } from "@/lib/data";
 
+const LINKEDIN_SIMONE = "https://www.linkedin.com/in/simonebruni14/";
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Crediti",
   description: "Chi ha realizzato il sito del giornale, con quali strumenti e con quali licenze.",
@@ -32,7 +42,20 @@ export default async function CreditsPage() {
         <h2>Il sito</h2>
         <ul>
           <li>
-            <strong>Ideazione, progettazione e sviluppo:</strong> Simone Bruni.
+            <strong>Ideazione e struttura del giornale:</strong> Andrea Giardina.
+          </li>
+          <li>
+            <strong>Progettazione e sviluppo del sito:</strong> Simone Bruni{" "}
+            <a
+              href={LINKEDIN_SIMONE}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Simone Bruni su LinkedIn"
+              title="Simone Bruni su LinkedIn"
+              className="inline-flex align-[-0.15em] text-ink-soft transition hover:text-tomato"
+            >
+              <LinkedInIcon className="size-[1.1em]" />
+            </a>.
           </li>
           <li>
             <strong>Illustrazioni dimostrative:</strong> disegni originali creati per il progetto, in stile risograph. Si sostituiscono
