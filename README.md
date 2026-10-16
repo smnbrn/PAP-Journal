@@ -82,11 +82,11 @@ Ogni modifica pubblicata compare subito sul sito.
 
 ## 3. Andare online
 
-Le istruzioni passo passo sono in **[docs/SETUP-SUPABASE.md](docs/SETUP-SUPABASE.md)**. In breve:
+In breve:
 
 **Con Neon e Vercel Blob** (guida in **[docs/SETUP-NEON.md](docs/SETUP-NEON.md)**): crea il progetto su Neon, `npm run db:migrate`, `npm run utente:crea`, poi pubblica su Vercel con `DATABASE_URL`, `SESSION_SECRET` e un archivio Blob collegato. Se `DATABASE_URL` è impostata, il sito usa Neon.
 
-**Con Supabase:**
+**Con Supabase (guida in **[docs/SETUP-SUPABASE.md](docs/SETUP-SUPABASE.md)**:**
 
 1. Crea un progetto gratuito su Supabase ed esegui i tre file in `supabase/migrations/` nell'editor SQL.
 2. Crea gli account della redazione e promuovi il primo amministratore.
