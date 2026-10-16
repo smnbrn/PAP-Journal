@@ -7,7 +7,7 @@ import { CourseIcon } from "./CourseIcon";
 export function CourseRail({ current }: { current: CourseSlug }) {
   const index = courses.findIndex((c) => c.slug === current);
   return (
-    <nav aria-label="Percorso delle portate" className="scroll-rail -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+    <nav aria-label="Percorso delle portate" className="scroll-rail -mx-4 -my-3 overflow-x-auto px-4 py-3 sm:mx-0 sm:px-0">
       <ol className="relative flex min-w-max items-start justify-between gap-2 sm:min-w-0">
         <span aria-hidden className="absolute top-5 right-6 left-6 h-px bg-ink/20" />
         <span
