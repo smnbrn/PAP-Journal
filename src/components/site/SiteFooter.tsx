@@ -1,3 +1,4 @@
+import { AnalyticsPreferences } from "@/components/site/Analytics";
 import Link from "next/link";
 import { getSettings } from "@/lib/data";
 import { courses } from "@/lib/site.config";
@@ -52,6 +53,11 @@ export async function SiteFooter() {
                   Privacy e regole di pubblicazione
                 </Link>
               </li>
+              {process.env.NEXT_PUBLIC_GA_ID && (
+                <li>
+                  <AnalyticsPreferences className="link-underline text-left" />
+                </li>
+              )}
               <li>
                 <Link href="/crediti" className="link-underline">
                   Crediti

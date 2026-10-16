@@ -32,6 +32,11 @@ export default async function PrivacyPage() {
             tecnico; nel database ne finisce solo un&apos;impronta cifrata, che non permette di risalire a chi ha votato.
           </li>
           <li>
+            <strong>Statistiche di visita (facoltative).</strong> Se accetti il banner, usiamo Google Analytics per contare le visite e
+            capire quali pagine vengono lette, con indirizzo IP anonimizzato. Se rifiuti, non viene caricato nulla. Puoi cambiare idea
+            in ogni momento dal link «Preferenze statistiche» in fondo alla pagina.
+          </li>
+          <li>
             <strong>Nessun cookie di profilazione</strong> e nessuno strumento pubblicitario.
           </li>
         </ul>

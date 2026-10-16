@@ -12,7 +12,12 @@ const supabaseHost = (() => {
 
 const nextConfig: NextConfig = {
   // Il browser deve sapere se i file vanno su Vercel Blob: la variabile del token esiste solo sul server.
-  env: { NEXT_PUBLIC_BLOB_UPLOADS: process.env.BLOB_READ_WRITE_TOKEN ? "1" : "" },
+  env: {
+    NEXT_PUBLIC_BLOB_UPLOADS: process.env.BLOB_READ_WRITE_TOKEN ? "1" : "",
+    // ID di misurazione di Google Analytics (pubblico per natura). Si può sostituire con la variabile
+    // NEXT_PUBLIC_GA_ID; per spegnere le statistiche basta impostarla vuota («NEXT_PUBLIC_GA_ID=»).
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID ?? "G-CKG3X7QRW6",
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
